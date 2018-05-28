@@ -1,3 +1,4 @@
+/*
 package by.grsu.models.calculators;
 
 import by.grsu.models.SportUser;
@@ -21,3 +22,4 @@ public class BMRCalculator {
         return 0;
     }
 }
+*/

@@ -3,10 +3,7 @@ package by.grsu.models;
 
 import by.grsu.models.enums.Role;
 import by.grsu.models.enums.State;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,12 +18,13 @@ import java.util.Collections;
 @NoArgsConstructor
 @Builder
 @Entity
+@ToString
 @Table(name = "sport_user")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "U")
+/*@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "U")*/
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
     private String lastName;
@@ -36,6 +34,10 @@ public class User implements UserDetails {
     private Role role;
     @Enumerated(value = EnumType.STRING)
     private State state;
+
+    @OneToOne(cascade = CascadeType.MERGE)
+    @PrimaryKeyJoinColumn
+    private SportDetails sportDetails;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

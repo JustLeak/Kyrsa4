@@ -1,15 +1,14 @@
 package by.grsu.repositories;
 
-import by.grsu.models.SportUser;
+import by.grsu.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
 import java.util.Optional;
 
-public interface UsersRepository extends JpaRepository<SportUser, Long> {
-    List<SportUser> findAllByFirstName(String firstName);
+public interface UsersRepository extends JpaRepository<User, Long> {
+    List<User> findAllByFirstName(String firstName);
 
-    List<SportUser> findAll();
+    List<User> findAll();
 
-    Optional<SportUser> findOneByLogin(String login);
+    Optional<User> findOneByLogin(String login);
 }

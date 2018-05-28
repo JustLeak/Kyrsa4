@@ -1,6 +1,7 @@
 package by.grsu.services;
 
 import by.grsu.repositories.UsersRepository;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,8 +15,8 @@ public class UserService implements UserDetailsService {
     UsersRepository usersRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(@NonNull String login) throws UsernameNotFoundException {
         return usersRepository.findOneByLogin(login).
-                orElseThrow(IllegalArgumentException::new);
+                orElseThrow(() -> new UsernameNotFoundException("user " + login + " was not found!"));
     }
 }
