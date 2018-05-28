@@ -1,18 +1,14 @@
-/*
 package by.grsu.models.calculators;
-
-import by.grsu.models.SportUser;
+import by.grsu.models.SportDetails;
 import by.grsu.models.enums.Gender;
 
 public class BMRCalculator {
+    static double getBMR(SportDetails details) {
+        double a = 10 * details.getWeight();
+        double b = 6.25 * details.getHeight();
+        double c = 5 * details.getAge();
 
-
-    static double getBMR(SportUser user) {
-        double a = 10 * user.getWeight();
-        double b = 6.25 * user.getHeight();
-        double c = 5 * user.getAge();
-
-        if (user.getGender().equals(Gender.MALE)) {
+        if (details.getGender().equals(Gender.MALE)) {
             double BMR = a + b;
             BMR -= c + 5;
         } else {
@@ -22,4 +18,3 @@ public class BMRCalculator {
         return 0;
     }
 }
-*/
