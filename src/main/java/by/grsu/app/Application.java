@@ -14,10 +14,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableJpaRepositories(basePackages = "com.fraer.repositories")
 @EntityScan(basePackages = "com.fraer.models")*/
 public class Application {
-    @Bean
+   /* @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
-    }
+    }*/
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
