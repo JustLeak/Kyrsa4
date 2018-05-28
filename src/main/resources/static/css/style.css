@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+    background-image: url("../img/fon.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.dws-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dws-form {
+    background-color: rgba(33, 255, 0, 0.4);
+    padding: 10px;
+    width: 330px;
+}
+
+.dws-form a {
+    text-decoration: none;
+    transition: .5s;
+    color: blueviolet;
+
+}
+
+.dws-form a:hover {
+    color: #ff090a;
+}
+
+.dws-form input {
+    display: block;
+    width: 100%;
+}
+
+.tab-form {
+    background-color: #fff;
+    display: none;
+    padding: 30px 20px 20px;
+}
+
+.tab-form.active {
+    display: block;
+}
+
+label.tab {
+
+    color: #0a19ff;
+
+    font-weight: 600;
+    padding: 15px;
+    display: inline-block;
+    border-radius: 3px 3px 0 0;
+    margin-bottom: -1px;
+    cursor: pointer;
+}
+
+label.tab.active {
+    background-color: #ffffff;
+    color: #a3a506;
+}
+
+.input {
+    font-size: 16px;
+    border: 2px solid #0a19ff;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    margin-bottom: 22px;
+    color: blue;
+    outline: none;
+}
+
+a.button {
+    background: orange;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    line-height: 45px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
