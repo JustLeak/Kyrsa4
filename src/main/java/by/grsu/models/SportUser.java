@@ -1,5 +1,6 @@
 package by.grsu.models;
 
+import by.grsu.models.enums.Active;
 import by.grsu.models.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,8 @@ public class SportUser extends User {
     private Short height;
     private Float weight;
     private Byte age;
+    @Enumerated(value = EnumType.STRING)
+    private Active active;
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
 }
