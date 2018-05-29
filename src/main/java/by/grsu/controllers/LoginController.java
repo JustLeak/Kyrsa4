@@ -1,24 +1,38 @@
 package by.grsu.controllers;
 
+import by.grsu.forms.UserForm;
+import by.grsu.services.RegistrationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
+    @Autowired
+    RegistrationService registrationService;
+
     @GetMapping("/login")
-    public String getLoginPage(Authentication authentication, ModelMap modelMap, HttpServletRequest httpServletRequest, HttpServletResponse response) {
+    public String getLoginPage(Authentication authentication, ModelMap modelMap,
+                               @RequestParam(value = "error", required = false) String error,
+                               @RequestParam(value = "logout", required = false) String logout) {
         if (authentication != null) {
             return "redirect:/hello";
         }
 
-        if (httpServletRequest.getParameterMap().containsKey("error")) {
-            modelMap.addAttribute("error", true);
-        }
+        modelMap.addAttribute("error", error != null);
+        modelMap.addAttribute("logout", logout != null);
 
         return "loginPage";
+    }
+
+    @PostMapping("/registration")
+    public String registration(UserForm userForm) {
+        registrationService.signUp(userForm);
+        return "hello";
     }
 }

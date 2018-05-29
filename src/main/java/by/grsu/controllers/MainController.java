@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
-    @RequestMapping("/hello")
 
+    @RequestMapping("/hello")
     public String getMainPage() {
         /*SportDetails sportDetails = SportDetails.builder().weight(68.8F)
                 .height((short) 180)

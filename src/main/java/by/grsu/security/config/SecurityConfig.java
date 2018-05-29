@@ -30,11 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService service;
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
     public PersistentTokenRepository tokenRepository() {
         JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
         tokenRepository.setDataSource(dataSource);
@@ -45,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/css/**", "/js/**", "/img/**", "/hello/**").permitAll()
+                .antMatchers("/css/**", "/js/**", "/img/**", "/hello/**", "/registration/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().permitAll()
