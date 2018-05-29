@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @Data
@@ -34,6 +36,9 @@ public class User implements UserDetails {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "sDetail_FK")
     private SportDetails sportDetails;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Meal> meals;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -17,5 +17,5 @@ public class UserForm {
     private Float weight;
     private Byte age;
     /*private Active active;*/
-   /* private Gender gender;*/
+    private String gender;
 }

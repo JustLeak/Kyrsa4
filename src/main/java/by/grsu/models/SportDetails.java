@@ -25,6 +25,4 @@ public class SportDetails {
     private Active active;
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
-
-
 }

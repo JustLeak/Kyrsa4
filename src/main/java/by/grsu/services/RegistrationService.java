@@ -9,8 +9,6 @@ import by.grsu.models.enums.Role;
 import by.grsu.models.enums.State;
 import by.grsu.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +25,7 @@ public class RegistrationService {
 
         SportDetails sportDetails = SportDetails.builder().weight(userForm.getWeight())
                 .height(userForm.getHeight())
-                .gender(Gender.MALE)
+                .gender(Gender.valueOf(userForm.getGender()))
                 .age(userForm.getAge())
                 .active(Active.MODERATELY)
                 .build();

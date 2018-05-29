@@ -37,8 +37,17 @@
             <input class="input" type="text" name="firstName" placeholder="Input first name">
             <input class="input" type="text" name="lastName" placeholder="Input last name">
             <input class="input" type="number" name="age" placeholder="Input age">
-     <#--       <input class="radio-button" type="radio" name="gender" id="gender" value="male"> Male
-            <input class="radio-button" type="radio" name="gender" id="gender" value="female"> Female-->
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="gender_male" value="MALE" checked>
+                <label class="form-check-label" for="gender_male">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="gender_female" value="FEMALE">
+                <label class="form-check-label" for="gender_female">
+                    Female
+                </label>
             <input class="input" type="number" name="weight" placeholder="Input weight(kg)">
             <input class="input" type="number" name="height" placeholder="Input height(sm)">
             <input class="input" type="password" name="password" placeholder="Password">
