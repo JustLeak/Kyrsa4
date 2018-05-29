@@ -6,6 +6,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
@@ -19,7 +20,7 @@ import java.util.Collections;
 @Table(name = "sport_user")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
@@ -29,8 +30,9 @@ public class User implements UserDetails {
     private Role role;
     @Enumerated(value = EnumType.STRING)
     private State state;
-    @OneToOne(cascade = CascadeType.MERGE)
-    @PrimaryKeyJoinColumn
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "sDetail_FK")
     private SportDetails sportDetails;
 
     @Override
