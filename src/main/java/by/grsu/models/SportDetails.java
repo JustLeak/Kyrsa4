@@ -3,7 +3,6 @@ package by.grsu.models;
 import by.grsu.models.enums.Active;
 import by.grsu.models.enums.Gender;
 import lombok.*;
-
 import javax.persistence.*;
 
 @AllArgsConstructor

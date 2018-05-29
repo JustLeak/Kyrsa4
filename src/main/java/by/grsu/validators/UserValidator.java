@@ -1,5 +1,6 @@
-package by.grsu.validators;
+/*package by.grsu.validators;*/
 
+/*
 import by.grsu.models.User;
 import by.grsu.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,3 +24,4 @@ public class UserValidator implements Validator {
 
     }
 }
+*/

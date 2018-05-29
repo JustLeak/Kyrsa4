@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -21,6 +18,7 @@ public class Meal implements ICaloric {
     private Long id;
 
     private String name;
+    private Double calories;
 
     @OneToMany(mappedBy = "meal", cascade = CascadeType.ALL)
     private Set<Product> products;
@@ -31,12 +29,10 @@ public class Meal implements ICaloric {
 
     @Override
     public double countCalories() {
-        Double calories = 0D;
+        calories = 0d;
         for (Product product : products) {
             calories += product.countCalories();
-
         }
         return calories;
     }
-    /*private Date date;*/
 }

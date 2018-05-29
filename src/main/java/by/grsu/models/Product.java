@@ -18,7 +18,7 @@ public class Product implements ICaloric {
     private Long id;
     private String name;
     private Double calories;
-    private Double portionWeight;
+    private Double weight;
 
     @ManyToOne
     @JoinColumn(name = "meal_id")
@@ -26,6 +26,6 @@ public class Product implements ICaloric {
 
     @Override
     public double countCalories() {
-        return portionWeight * calories;
+        return weight / 100 * calories;
     }
 }

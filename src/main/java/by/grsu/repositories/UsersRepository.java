@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UsersRepository extends JpaRepository<User, Long> {
-    List<User> findAllByFirstName(String firstName);
-
     List<User> findAll();
 
     Optional<User> findOneByLogin(String login);
