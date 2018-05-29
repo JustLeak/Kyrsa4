@@ -22,6 +22,8 @@
         <div class="alert alert-info" role="alert">You've been logged out successfully.</div></#if>
     <#if error>
         <div class="alert alert-danger" role="alert">Invalid Email or Password!</div></#if>
+    <#if noAuth>
+        <div class="alert alert-info" role="alert">Please login!</div></#if>
     <div class="dws-form">
         <label class="tab active" title="Inset 1"> Authorization</label>
         <label class="tab" title="Inset 2"> Registration </label>

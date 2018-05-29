@@ -18,6 +18,7 @@ import java.util.Set;
 @Builder
 @Entity
 @ToString
+@Getter
 @Table(name = "sport_user")
 public class User implements UserDetails {
     @Id
@@ -32,7 +33,7 @@ public class User implements UserDetails {
     @Enumerated(value = EnumType.STRING)
     private State state;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "sDetail_FK")
     private SportDetails sportDetails;
 

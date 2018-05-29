@@ -1,15 +1,15 @@
 package by.grsu.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Getter
 @Data
 @Entity
 public class Meal implements ICaloric {
@@ -19,9 +19,9 @@ public class Meal implements ICaloric {
 
     private String name;
     private Double calories;
-
+    private String imageAddress;
     @OneToMany(mappedBy = "meal", cascade = CascadeType.ALL)
-    private Set<Product> products;
+    private List<Product> products;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

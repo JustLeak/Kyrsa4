@@ -18,13 +18,19 @@ public class LoginController {
     @GetMapping("/login")
     public String getLoginPage(Authentication authentication, ModelMap modelMap,
                                @RequestParam(value = "error", required = false) String error,
-                               @RequestParam(value = "logout", required = false) String logout) {
+                               @RequestParam(value = "logout", required = false) String logout,
+                               @RequestParam(value = "noAuth", required = false) String noAuth){
+
         if (authentication != null) {
-            return "redirect:/hello";
+            return "redirect:/meals";
         }
 
         modelMap.addAttribute("error", error != null);
         modelMap.addAttribute("logout", logout != null);
+        modelMap.addAttribute("noAuth", noAuth != null);
+
+
+
 
         return "loginPage";
     }
@@ -32,6 +38,6 @@ public class LoginController {
     @PostMapping("/registration")
     public String registration(UserForm userForm) {
         registrationService.signUp(userForm);
-        return "hello";
+        return "redirect:/meals";
     }
 }
